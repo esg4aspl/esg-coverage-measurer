@@ -1,0 +1,23 @@
+@startuml
+hide footbox
+skinparam sequenceMessageAlign center
+
+mainframe 4.4.3 myTurn
+
+participant "c: Controller" as c
+participant "v: Virologist" as v
+participant "e: Effect" as e
+c -> v ++ : myTurn()
+    loop for e in activeEffects
+        v -> e ++ : onTurnImpact(v)
+        return
+    end
+
+    note over v,e: Actions chosen by the Player
+    loop for e in activeEffects
+        v -> e ++ : endTurnImpact(v)
+        return
+    end
+    ref over v: Agent time decreases
+return
+@enduml

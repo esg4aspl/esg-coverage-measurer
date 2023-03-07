@@ -1,0 +1,49 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+hide footbox
+skinparam sequenceMessageAlign center
+
+mainframe 4.4.13 Virologist crafts an agent
+
+actor Player as p
+participant "v: Virologist" as v
+participant "i: Inventory" as i
+'renamed g as gc to avoid confusion with glove
+participant "g: GeneticCode" as gc
+participant "agent: Agent" as a1
+participant "price: Resource"
+participant "newAgent: Agent" as a2
+
+p -> v ++ : getCraftables()
+
+    v -> i ++ : getGeneticCodes()
+    return geneticCodes
+
+    loop for all g in geneticCodes
+        v -> gc ++ : isCraftable(i)
+            gc -> i ++ : getResources()
+            return resources
+        return craftable
+    end
+return craftableCodes
+
+note over p,v: Player chooses 'g' from craftableCodes.
+p -> v ++ : craft(g)
+    alt craftable
+        v -> gc ++ : craft(i)
+            loop for all price: Resource
+                gc -> i ++ : removeResource(price)
+                return
+            end
+            note over gc, a1 : Clones the agent stored in the agent attribute
+            gc -> a1 ++ : create()
+                a1 -> a2 ** : <<create>>
+            return newAgent
+            gc -> i ++ : addCraftedAgent(newAgent)
+            return
+        return
+    end
+return
+
+@enduml

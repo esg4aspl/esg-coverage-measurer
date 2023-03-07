@@ -1,0 +1,61 @@
+{
+  "Equipment": [
+    "Effect",
+    "Collectible"
+  ],
+  "Agent": [
+    "Effect"
+  ],
+  "Bag": [
+    "Equipment"
+  ],
+  "Resource": [
+    "Collectible"
+  ],
+  "GeneticCode": [
+    "Collectible"
+  ],
+  "Glove": [
+    "Equipment"
+  ],
+  "ProtectiveCloak": [
+    "Equipment"
+  ],
+  "Axe": [
+    "Equipment",
+    "UsableEquipment"
+  ],
+  "Vaccine": [
+    "Agent"
+  ],
+  "AmnesiaVirus": [
+    "Agent"
+  ],
+  "BearDanceVirus": [
+    "Agent"
+  ],
+  "VitusDanceVirus": [
+    "Agent"
+  ],
+  "StunVirus": [
+    "Agent"
+  ],
+  "EmptyTile": [
+    "Tile"
+  ],
+  "InfectedLaboratory": [
+    "Tile"
+  ],
+  "Laboratory": [
+    "Tile"
+  ],
+  "Warehouse": [
+    "Tile"
+  ],
+  "Safehouse": [
+    "Tile"
+  ],
+  "ConsoleView": [
+    "View"
+  ]
+}

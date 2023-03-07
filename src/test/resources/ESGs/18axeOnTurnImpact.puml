@@ -1,0 +1,30 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+hide footbox
+skinparam sequenceMessageAlign center
+
+mainframe 4.4.24 Axe Impacts
+
+'renamed a as axe to avoid confusion with agent
+participant "a: Axe" as axe
+participant "v: Virologist" as v
+participant "v1Inv: Inventory" as v1Inv
+
+
+-> axe ++: onTurnImpact(v)
+    axe -> v ++ : getInventory()
+    return v1Inv
+    axe -> v1Inv ++ : addUsableEquipment(a)
+    return
+return
+
+...
+
+-> axe ++: endTurnImpact(v)
+   axe -> v ++ : getInventory()
+   return v1Inv
+   axe -> v1Inv ++ : removeUsableEquipment(a)
+   return
+return
+@enduml

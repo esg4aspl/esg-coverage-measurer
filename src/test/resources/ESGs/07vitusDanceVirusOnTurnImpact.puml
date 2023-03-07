@@ -1,0 +1,28 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+hide footbox
+skinparam sequenceMessageAlign center
+
+mainframe 4.4.8 Virologist is affected by Vitus Dance Virus
+
+participant "v: Virologist" as v
+participant "dv: VitusDanceVirus" as dv
+participant "t: Tile" as t
+
+note over v, dv : This function gets called in myTurn
+v -> dv ++: onTurnImpact(v)
+    dv -> v ++: getActionsLeft()
+    return actionsLeft
+    loop for actionsLeft > 0
+        dv -> v ++: getActiveTile()
+        return t: Tile
+        dv -> t ++: getNeighbours()
+        return neighbours: Tile[]
+        note over dv: A number is generated between 0\n and the number of neighbours - 1
+        dv -> v ++: moveTo(neighbours[randomNumber])
+        return
+        dv -> v ++: getActionsLeft()
+        return actionsLeft
+    end
+return
+@enduml

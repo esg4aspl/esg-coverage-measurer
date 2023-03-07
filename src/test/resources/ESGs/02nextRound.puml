@@ -1,0 +1,16 @@
+@startuml
+hide footbox
+skinparam sequenceMessageAlign center
+
+mainframe 4.4.2 nextRound
+
+actor Controller as cr
+participant "c: Controller" as c
+participant "v: Virologist" as v
+cr -> c ++ : nextRound()
+    loop for all players: Player
+        c -> v ++ :myTurn()
+        return
+    end
+return
+@enduml
