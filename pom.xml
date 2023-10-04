@@ -15,12 +15,9 @@
 
     <dependencies>
         <dependency>
-<!--            <groupId>org.example</groupId>-->
-<!--            <artifactId>SequenceDiagram-to-ESG-Transformer</artifactId>-->
-<!--            <version>1.0-SNAPSHOT</version>-->
-            <groupId>com.github.Emut</groupId>
-            <artifactId>temp</artifactId>
-            <version>c2869ff</version>
+            <groupId>com.github.esg4aspl</groupId>
+            <artifactId>sequence-diagram-to-esg</artifactId>
+            <version>7079592</version>
         </dependency>
         <dependency>
             <groupId>com.github.esg4aspl</groupId>
@@ -30,7 +27,7 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
-            <version>2.13.2</version>
+            <version>2.13.4.1</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
